@@ -14,7 +14,7 @@ require_once "../class.php";
 </head>
 <body>
 <form name = "reg" action = "dop/reg.php" method = "post" style="border: solid 1px; width: 400px;position: fixed; left: 35%;">
-   <?php include 'dop/add_ch_user.html'; ?>
+   <?php include 'dop/add_ch_user.php'; ?>
     <p align="center"><button><?php echo lang::trans('Add'); ?></button>
 </form>
 </body>
