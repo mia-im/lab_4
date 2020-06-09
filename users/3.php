@@ -16,5 +16,5 @@ else {
 	<br><a href="2.php"><?php echo lang::trans('Manager information'); ?></a>
 	<br><a href="1.php"><?php echo lang::trans('Client information'); ?></a>
 </form>
-<?php include '../actions/dop/users_buttons.php';
+<?php include '../actions/dop/users_buttons.php'; ?>
 
