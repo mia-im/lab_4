@@ -7,8 +7,12 @@ session_start();
     }
 
 $link = mysqli_connect('localhost', 'root' , '','lab');
-$id=$_GET['id'];
-$sql = mysqli_query($link, "DELETE FROM `users` WHERE `id` = '" . mysqli_real_escape_string($link, $id) . "';");
+
+$stmt = mysqli_prepare($link, "DELETE FROM `users` WHERE `id` = ?");
+mysqli_stmt_bind_param($stmt, "i", $_GET['id']);
+
+mysqli_stmt_execute($stmt);
+
 $_SESSION['id_']=$_GET['id'];
 $_SESSION['delete']='yes';
 header("Location:list.php");	
