@@ -14,6 +14,8 @@ if ($_SESSION['role']!='3'&&$_SESSION['role']!='2'||empty($_SESSION['role'])){
     <title>Users List</title>
 </head>
 <body>
+<p align="center"><a href="ajax/index.php" > <?php echo lang::trans('Find'); ?></a>
+
 <p align="center"><table border = '1'>
 
 <?php
@@ -28,8 +30,7 @@ if ($_SESSION['delete']=='yes') {
    ?>
 
 </table>
-<p align="center"><input type="button" value="<?php echo lang::trans('Add new user'); ?>" onclick="location.href='registration.php'">
-<p align="center"><input type="button" value="<?php echo lang::trans('Find'); ?>" onclick="location.href='ajax/index.php'">
-<p align="center"><input type="button" value="<?php echo lang::trans('Back'); ?>" onclick="location.href='../users/<?php echo strtolower($_SESSION['role']).".php"; ?>'">
+<p align="center"><a href="registration.php" > <?php echo lang::trans('Add new user'); ?></a>
+<p align="center"><a href="../users/<?php echo strtolower($_SESSION['role']).".php"; ?>" > <?php echo lang::trans('Back'); ?></a>
 </body>
 </html>
