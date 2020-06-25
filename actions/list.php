@@ -20,13 +20,15 @@ if ($_SESSION['role']!='3'&&$_SESSION['role']!='2'||empty($_SESSION['role'])){
 
 <?php
 include 'dop/table.html';
-if ($_SESSION['delete']=='yes') {
-    echo lang::trans('User').' '.$_SESSION['id_'].' '.lang::trans('successfully deleted').'<br/>';
-    $_SESSION['delete']='';
-}
+    if ($_SESSION['delete']=='yes') {
+        echo lang::trans('User').' '.$_SESSION['id_'].' '.lang::trans('successfully deleted').'<br/>';
+        $_SESSION['delete']='';
+    }
+    $stmt = mysqli_prepare($link, "SELECT `id`, `name`, `surname`,`login`,`lang`,`role` FROM `users`");
 
-    $sql = mysqli_query($link, 'SELECT `id`, `name`, `surname`,`login`,`lang`,`role` FROM `users`');
-   include 'dop/table.php';
+    mysqli_stmt_execute($stmt);
+    $sql = mysqli_stmt_get_result($stmt);
+include 'dop/table.php';
    ?>
 
 </table>
